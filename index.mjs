@@ -1,6 +1,10 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
 import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
 const server = createServer(app);
 const io = new Server(server);
@@ -52,6 +56,12 @@ io.on("connection", socket => {
     socket.emit(getState(), getTime());
 });
 
+app.get("/", async (req, res) => {
+    res.sendFile("display.html", {root: path.join(__dirname, "public")});
+})
+app.get("/controller", async (req, res) => {
+    res.sendFile("io-controller.html", {root: path.join(__dirname, "public")});
+})
 
 app.get("/bg.mp3", async (req, res) => {
     res.redirect(302, "https://cdn.glitch.me/37d517f7-6eaf-4d8b-a2db-77e9c3c2a8a8/bg.mp3?v=1746491674788")
