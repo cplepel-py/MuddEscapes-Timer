@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="MuddEscapes Timer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+        href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+        rel="stylesheet"
+        />
+        <title>MuddEscapes Timer</title>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="display.js"></script>
+    </head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="contents" style="pointer-events: none;">
+            <video id="video" src="bg_video.mp4" width="100%" height="100%" autoplay muted loop></video>
+            <audio id="audio" src="bg.mp3" autoplay></audio>
+            <span id="timer-text"></span>
+        </div>
+    </body>
+</html>
